@@ -10,7 +10,7 @@ public class Fecha {
     public Fecha()
     {
         dia = 2;
-        mes = 2;
+        mes = 7;
         año = 2004;
     }
 
@@ -231,5 +231,260 @@ public class Fecha {
                     }
             }
         }
+    }
+
+    public boolean berdinakDira(Fecha a)
+    {
+        if ((a.dia == dia) && (a.mes == mes) && (a.año == año))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public String konparatu(Fecha a)
+    {
+        if (año > a.año)
+        {
+            return "La fecha1 es mayor que la fecha2";
+        }
+        else if (año < a.año)
+        {
+            return "La fecha2 es mayor que la fecha1";
+        }
+        else if (año == a.año)
+        {
+            if (mes > a.mes)
+            {
+                return "La fecha1 es mayor que la fecha2";
+            }
+            else if (mes < a.mes)
+            {
+                return "La fecha2 es mayor que la fecha1";
+            }
+            else
+            {
+                if (dia > a.dia)
+                {
+                    return "La fecha1 es mayor que la fecha2";
+                }
+                else if (dia < a.dia)
+                {
+                    return "La fecha2 es mayor que la fecha1";
+                }
+                else
+                {
+                    return "Las fechas son iguales";
+                }
+            }
+        }
+        else
+        {
+            return "Fechas incorrectas";
+        }
+    }
+
+    public int urteHasietatikZenbatEgun()
+    {
+        int sumaDias = 0;
+        int diasMes = 0;
+
+        for (int i = 1; i <= mes; i++)
+        {
+            if (año % 4 == 0)
+            {
+                if (i == 2)
+                {
+                    diasMes += 29;
+                }
+                else if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i ==12)
+                {
+                    diasMes += 31;
+                }
+                else if (i == 4 || i == 6 || i == 9 || i == 11)
+                {
+                    diasMes += 30;
+                }
+            }
+            else
+            {
+                if (i == 2)
+                {
+                    diasMes += 28;
+                }
+                else if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i ==12)
+                {
+                    diasMes += 31;
+                }
+                else if (i == 4 || i == 6 || i == 9 || i == 11)
+                {
+                    diasMes += 30;
+                }
+            }
+        }
+
+        sumaDias = dia + diasMes;
+
+        return sumaDias;
+    }
+
+    public int urteBukaerarainoZenbategun()
+    {
+        int sumaDias = 0;
+        int diasMes = 0;
+        int diasFinal;
+
+        for (int i = 1; i <= mes; i++)
+        {
+            if (año % 4 == 0)
+            {
+                if (i == 2)
+                {
+                    diasMes += 29;
+                }
+                else if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i ==12)
+                {
+                    diasMes += 31;
+                }
+                else if (i == 4 || i == 6 || i == 9 || i == 11)
+                {
+                    diasMes += 30;
+                }
+            }
+            else
+            {
+                if (i == 2)
+                {
+                    diasMes += 28;
+                }
+                else if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i ==12)
+                {
+                    diasMes += 31;
+                }
+                else if (i == 4 || i == 6 || i == 9 || i == 11)
+                {
+                    diasMes += 30;
+                }
+            }
+        }
+
+        sumaDias = dia + diasMes;
+        diasFinal = 365 - sumaDias;
+
+        return diasFinal;
+    }
+
+    public int egunFaltaDira(Fecha a)
+    {
+        //Pasar la fecha a comparar a dias
+        int diasFecha1;
+        int diasFecha2;
+        int diasMes1 = 0;
+        int diasMes2 = 0;
+        int diasAño1 = 0;
+        int diasAño2 = 0;
+        int resultado;
+
+        //FECHA1
+        for (int i = 1; i <= mes; i++)
+        {
+            if (año % 4 == 0)
+            {
+                if (i == 2)
+                {
+                    diasMes1 += 29;
+                }
+                else if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i ==12)
+                {
+                    diasMes1 += 31;
+                }
+                else if (i == 4 || i == 6 || i == 9 || i == 11)
+                {
+                    diasMes1 += 30;
+                }
+            }
+            else
+            {
+                if (i == 2)
+                {
+                    diasMes1 += 28;
+                }
+                else if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i ==12)
+                {
+                    diasMes1 += 31;
+                }
+                else if (i == 4 || i == 6 || i == 9 || i == 11)
+                {
+                    diasMes1 += 30;
+                }
+            }
+        }
+
+        for (int i = 1; i <= año; i++)
+        {
+            diasAño1 += 365;
+        }
+
+        //FECHA2
+        for (int i = 1; i <= a.mes; i++)
+        {
+            if (año % 4 == 0)
+            {
+                if (i == 2)
+                {
+                    diasMes2 += 29;
+                }
+                else if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i ==12)
+                {
+                    diasMes2 += 31;
+                }
+                else if (i == 4 || i == 6 || i == 9 || i == 11)
+                {
+                    diasMes2 += 30;
+                }
+            }
+            else
+            {
+                if (i == 2)
+                {
+                    diasMes2 += 28;
+                }
+                else if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i ==12)
+                {
+                    diasMes2 += 31;
+                }
+                else if (i == 4 || i == 6 || i == 9 || i == 11)
+                {
+                    diasMes2 += 30;
+                }
+            }
+        }
+
+        for (int i = 1; i <= a.año; i++)
+        {
+            diasAño2 += 365;
+        }
+
+        diasFecha1 = dia + diasAño1 + diasMes1;
+        diasFecha2 = a.dia + diasAño2 + diasMes2;
+
+        if (diasFecha1 > diasFecha2)
+        {
+            resultado = diasFecha1 - diasFecha2;
+        }
+        else
+        {
+            resultado = diasFecha2 - diasFecha1;
+        }
+        
+        return resultado;
+    }
+
+    public int adinaKalkulatu()
+    {
+        
     }
 }

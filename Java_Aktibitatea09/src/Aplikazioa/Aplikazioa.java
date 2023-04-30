@@ -4,9 +4,11 @@ import Fecha.Fecha;
 public class Aplikazioa {
     public static void main(String[] args) {
 
+        int d = 4;
+        int m = 8;
+        int a = 2006;
         Fecha fecha1 = new Fecha();
-
-        int d = 25;
+        Fecha fecha2 = new Fecha(d, m, a);
 
         System.out.println("hiruHileko: "+ fecha1.hiruHileko());
         System.out.println("lauHileko: "+ fecha1.lauHileko());
@@ -15,8 +17,12 @@ public class Aplikazioa {
         System.out.println("hilabeteIzenaLortuEuskaraz: "+ fecha1.hilabeteaIzenaEuskaraz());
         System.out.println("hilEgunKopuruMax: "+ fecha1.hilEgunKopuruMax());
         System.out.println("bisiestoDa: "+ fecha1.bisiestoDa());
-        fecha1.egunaAldatu(d);
         System.out.println("dia: "+ fecha1.dia);
-        
+        System.out.println("berdinakDira: "+ fecha2.berdinakDira(fecha1));
+        System.out.println("konparatu: "+ fecha1.konparatu(fecha2));
+        System.out.println("urteHasieratikZenbatEgun: "+ fecha1.urteHasietatikZenbatEgun());
+        System.out.println("UrteBukaerarainoZenbatEgun: "+ fecha1.urteBukaerarainoZenbategun());
+        System.out.println("egunFaltaDira: "+ fecha1.egunFaltaDira(fecha2));
+
     }
 }
